@@ -1,0 +1,18 @@
+create database amon DEFAULT CHARACTER SET utf8;
+grant all on amon.* TO 'amon'@'%' IDENTIFIED BY '123456';
+create database rman DEFAULT CHARACTER SET utf8;
+grant all on rman.* TO 'rman'@'%' IDENTIFIED BY '123456';
+create database metastore DEFAULT CHARACTER SET utf8;
+grant all on metastore.* TO 'hive'@'%' IDENTIFIED BY '123456';
+create database sentry DEFAULT CHARACTER SET utf8;
+grant all on sentry.* TO 'sentry'@'%' IDENTIFIED BY '123456';
+create database nav DEFAULT CHARACTER SET utf8;
+grant all on nav.* TO 'nav'@'%' IDENTIFIED BY '123456';
+create database navms DEFAULT CHARACTER SET utf8;
+grant all on navms.* TO 'navms'@'%' IDENTIFIED BY '123456';
+create database oozie DEFAULT CHARACTER SET utf8;
+grant all privileges on oozie.* to 'oozie'@'%' identified by '123456';
+create database hue DEFAULT CHARACTER SET utf8;
+grant all privileges on hue.* to 'hue'@'%' identified by '123456';
+create database cm DEFAULT CHARACTER SET utf8;
+grant all on cm.* TO 'cm'@'%' IDENTIFIED BY '123456';
