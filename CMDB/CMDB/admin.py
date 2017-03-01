@@ -69,7 +69,7 @@ class IDCAdmin(NestedModelAdmin):
                      'linkman', 'address',
                      'operator', 'concat_email', 'idc_count', 'create_time', 'update_time']
      search_fields = ['name']
-     #inlines = [CabinetInline]
+     inlines = [CabinetInline]
 
      def idc_count(self, obj):
          return obj.cabinet_set.count()
