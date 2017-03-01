@@ -19,8 +19,8 @@ from CMDB.views import index,login,list
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^index/', index),
-    url(r'^login/', login),
-    url(r'list/(\d*)',list),
+    #url(r'^index/', index),
+    #url(r'^login/', login),
+    #url(r'list/(\d*)',list),
 
 ]

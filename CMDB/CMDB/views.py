@@ -2,7 +2,6 @@
 #coding:utf-8
 from django.shortcuts import render
 from django.http.response import HttpResponse
-from CMDB.models import Asset
 def index(request):
     return HttpResponse('hello index')
 def login(request):
