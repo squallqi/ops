@@ -29,6 +29,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'CMDB',
+    'nested_inline',
+    'deploy_manager',
 ]
 
 MIDDLEWARE = [
@@ -52,7 +54,7 @@ SUIT_CONFIG = {
         #{'label': 'blog', 'icon':'icon-cog', 'models': ('suit.price', )},
         # Rename app and set icon
         {'app': 'cmdb', 'label': u'资产管理', 'icon':'icon-lock'},
-        #{'app': 'blog', 'label': u'配置管理', 'icon':'icon-cog'},
+        {'app': 'deploy', 'label': u'发布管理', 'icon':'icon-cog'},
         #{'app': 'movie', 'label': u'电影', 'icon':'icon-star'},
 
         # Reorder app models
