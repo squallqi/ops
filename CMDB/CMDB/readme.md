@@ -3,7 +3,8 @@
 pip install salt
 pip install django-suit
 pip install salt
-pip install django-mptt
+
+#pip install django-mptt
 
 backports-abc==0.5
 certifi==2016.9.26
