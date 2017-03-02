@@ -28,9 +28,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'deploy_manager',
     'CMDB',
     'nested_inline',
-    'deploy_manager',
+    'mptt',
+
 ]
 
 MIDDLEWARE = [
@@ -54,7 +56,7 @@ SUIT_CONFIG = {
         #{'label': 'blog', 'icon':'icon-cog', 'models': ('suit.price', )},
         # Rename app and set icon
         {'app': 'cmdb', 'label': u'资产管理', 'icon':'icon-lock'},
-        {'app': 'deploy', 'label': u'发布管理', 'icon':'icon-cog'},
+        {'app': 'deploy_manager', 'label': u'发布管理', 'icon':'icon-cog'},
         #{'app': 'movie', 'label': u'电影', 'icon':'icon-star'},
 
         # Reorder app models
@@ -152,3 +154,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+PACKAGE_PATH = os.path.join("CMDB")
