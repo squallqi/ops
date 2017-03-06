@@ -2,7 +2,7 @@
 #coding:utf-8
 import salt.client
 
-from cmdb.models import Host, HostIP
+from CMDB.models import Host, HostIP
 from saltjob.salt_https_api import salt_api_token
 from saltjob.salt_token_id import token_id
 from CMDB.settings import SALT_REST_URL

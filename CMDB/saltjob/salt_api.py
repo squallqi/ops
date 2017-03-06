@@ -24,7 +24,7 @@ def get_state(target):
         states = {}
     return  states
 
-if __name__ == "__main__"
+if __name__ == "__main__":
     print get_state('*')
 
 

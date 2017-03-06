@@ -14,7 +14,7 @@ SECRET_KEY = '=vs8ojnndz@-aj19k-&3n4msv+k)ov3-qd7p3#q&9ysfdfdu5#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['10.1.10.176']
 #python manage.py makemigrations
 #python manage.py migrate
 #
@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'deploy_manager',
     'CMDB',
+    'saltjob',
     'nested_inline',
     'mptt',
 
@@ -108,7 +109,7 @@ DATABASES = {
     'ENGINE': 'django.db.backends.mysql',
     'NAME': 'cmdb',
     'USER': 'root',
-    'PASSWORD': '',
+    'PASSWORD': 'root',
     'HOST': 'localhost',
     'PORT': '3306',
     }
