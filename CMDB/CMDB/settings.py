@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 #coding:utf-8
 import os
 
@@ -13,8 +14,14 @@ SECRET_KEY = '=vs8ojnndz@-aj19k-&3n4msv+k)ov3-qd7p3#q&9ysfdfdu5#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
 ALLOWED_HOSTS = ['10.1.10.176']
+LOGIN_REDIRECT_URL = "/"
+
+#CSRF_COOKIE_SECURE = True
+#CSRF_COOKIE_HTTPONLY = True
+#SENDFILE_BACKEND = 'sendfile.backends.development'
+
+
 #python manage.py makemigrations
 #python manage.py migrate
 #
@@ -30,18 +37,17 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'deploy_manager',
     'CMDB',
-    'saltjob',
+    #'saltjob',
     'nested_inline',
     'mptt',
     'rest_framework',
-
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -161,12 +167,23 @@ PACKAGE_PATH = os.path.join("CMDB")
 CRONJOBS = [
     ('*/30 * * * *', 'saltjob.cron.scanHostJob')
 ]
+
+'''REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    )
+}'''
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
 }
 
-SALT_REST_URL = 'http://127.0.0.1:8001/'
+
+
+
+
+SALT_REST_URL = 'http://10.1.10.176:8000/'
 SALT_USER = 'admin'
 SALT_PASSWORD = 'admin123'

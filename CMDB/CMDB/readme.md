@@ -34,3 +34,52 @@ wheel==0.24.0
 python manager.py makemigrations deploy_manager
 python manager.py migrate
 
+
+
+salt -C '*' test.ping -l debug
+curl -sSk https://localhost:8000/login     -H 'Accept: application/x-yaml'     -d username=admin     -d password=admin123     -d eauth=pam
+
+return:
+- eauth: pam
+  expire: 1488869377.946074
+  perms:
+  - .*
+  - '@wheel'
+  - '@runner'
+  start: 1488826177.946074
+  token: 29efb7c2a4ff8dc4b532366c07da390d65d8fd09
+  user: admin
+
+curl -sSk https://localhost:8000 \
+    -H 'Accept: application/x-yaml' \
+    -H 'X-Auth-Token: 29efb7c2a4ff8dc4b532366c07da390d65d8fd09'\
+    -d client=local \
+    -d tgt='*' \
+    -d fun=test.ping
+
+
+curl -sSk https://localhost:8000 \
+    -H 'Accept: application/x-yaml' \
+    -H 'X-Auth-Token: 29efb7c2a4ff8dc4b532366c07da390d65d8fd09'\
+    -d client=local \
+    -d tgt='*' \
+    -d fun='grains.items'
+
+curl -sSk https://localhost:8000 \
+    -H 'Accept: application/x-yaml' \
+    -H 'X-Auth-Token: 29efb7c2a4ff8dc4b532366c07da390d65d8fd09'\
+    -d client=local \
+    -d tgt='*' \
+    -d fun='cmd.run' \
+    -d arg="free -m"
+
+
+ pip install --upgrade cffi
+sudo apt-get install libffi-dev
+sudo apt-get install libssl-dev
+sudo apt-get install python-dev
+pip install  pyopenssl==0.14 
+sudo apt-get install libffi-dev g++ libssl-de
+ImportError! No module named tornado
+https://docs.saltstack.com/en/latest/ref/netapi/all/salt.netapi.rest_cherrypy.html
+

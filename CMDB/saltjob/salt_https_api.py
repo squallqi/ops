@@ -3,8 +3,8 @@
 # coding=utf8
 import urllib, yaml, json
 import requests
-
-requests.packages.urllib3.disable_warnings()
+from django.views.decorators.csrf import csrf_exempt
+#requests.packages.urllib3.disable_warnings()
 
 
 class salt_api_token(object):
