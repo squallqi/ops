@@ -34,7 +34,6 @@ INSTALLED_APPS = [
     'nested_inline',
     'mptt',
     'rest_framework',
-    'saltjob',
 
 ]
 
