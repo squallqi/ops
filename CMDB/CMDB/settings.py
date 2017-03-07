@@ -33,6 +33,8 @@ INSTALLED_APPS = [
     'saltjob',
     'nested_inline',
     'mptt',
+    'rest_framework',
+    'saltjob',
 
 ]
 
@@ -156,3 +158,16 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 PACKAGE_PATH = os.path.join("CMDB")
+
+CRONJOBS = [
+    ('*/30 * * * *', 'saltjob.cron.scanHostJob')
+]
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
+
+SALT_REST_URL = 'http://127.0.0.1:8001/'
+SALT_USER = 'admin'
+SALT_PASSWORD = 'admin123'
