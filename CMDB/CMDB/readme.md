@@ -34,7 +34,8 @@ wheel==0.24.0
 python manager.py makemigrations deploy_manager
 python manager.py migrate
 
-
+sudo add-apt-repository ppa:saltstack/salt
+apt-get update
 
 salt -C '*' test.ping -l debug
 curl -sSk https://localhost:8000/login     -H 'Accept: application/x-yaml'     -d username=admin     -d password=admin123     -d eauth=pam
@@ -75,11 +76,11 @@ curl -sSk https://localhost:8000 \
 
 
  pip install --upgrade cffi
-sudo apt-get install libffi-dev
-sudo apt-get install libssl-dev
-sudo apt-get install python-dev
-pip install  pyopenssl==0.14 
-sudo apt-get install libffi-dev g++ libssl-de
+sudo apt-get install libffi-dev -y
+sudo apt-get install libssl-dev -y
+sudo apt-get install python-dev -y
+pip install  pyopenssl==0.14
+sudo apt-get install libffi-dev g++ libssl-dev -y
 ImportError! No module named tornado
 https://docs.saltstack.com/en/latest/ref/netapi/all/salt.netapi.rest_cherrypy.html
 

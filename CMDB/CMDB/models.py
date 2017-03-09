@@ -4,8 +4,8 @@ import sys
 reload(sys)                      # reload 才能调用 setdefaultencoding 方法
 sys.setdefaultencoding('utf-8')  # 设置 'utf-8'
 #from __future__ import unicode_literals
-
 from django.db import models
+
 
 
 class ISP(models.Model):
@@ -84,7 +84,6 @@ class Rack(models.Model):
     class Meta:
         verbose_name = u"机架"
         verbose_name_plural = verbose_name
-
 
 class Host(models.Model):
     host_name = models.CharField(max_length=255, blank=False, null=True, verbose_name=u"主机DNS名称")

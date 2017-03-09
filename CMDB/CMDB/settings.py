@@ -2,6 +2,7 @@
 #coding:utf-8
 import os
 
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -14,7 +15,7 @@ SECRET_KEY = '=vs8ojnndz@-aj19k-&3n4msv+k)ov3-qd7p3#q&9ysfdfdu5#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = ['10.1.10.176']
+ALLOWED_HOSTS = []
 LOGIN_REDIRECT_URL = "/"
 
 #CSRF_COOKIE_SECURE = True
@@ -28,6 +29,12 @@ LOGIN_REDIRECT_URL = "/"
 # Application definition
 
 INSTALLED_APPS = [
+    'CMDB',
+    'deploy_manager',
+    'saltjob',
+    'nested_inline',
+    'mptt',
+    'rest_framework',
     'suit',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -35,12 +42,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'deploy_manager',
-    'CMDB',
-    #'saltjob',
-    'nested_inline',
-    'mptt',
-    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -116,7 +117,7 @@ DATABASES = {
     'ENGINE': 'django.db.backends.mysql',
     'NAME': 'cmdb',
     'USER': 'root',
-    'PASSWORD': 'root',
+    'PASSWORD': '',
     'HOST': 'localhost',
     'PORT': '3306',
     }
@@ -184,6 +185,6 @@ REST_FRAMEWORK = {
 
 
 
-SALT_REST_URL = 'http://10.1.10.176:8000/'
+SALT_REST_URL = 'https://192.168.11.130:8000/'
 SALT_USER = 'admin'
 SALT_PASSWORD = 'admin123'

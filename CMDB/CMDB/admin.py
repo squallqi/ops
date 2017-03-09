@@ -2,11 +2,11 @@
 #coding:utf-8
 import requests
 from django.contrib import admin
-from django.shortcuts import redirect
+
 from nested_inline.admin import NestedStackedInline, NestedModelAdmin
 from CMDB.admin import *
 from CMDB.models import *
-# #from deploy_manager.models import *
+from deploy_manager.models import *
 # from saltjob.salt_https_api import salt_api_token
 # from saltjob.salt_token_id import token_id
 # from saltjob.tasks import scanHostJob

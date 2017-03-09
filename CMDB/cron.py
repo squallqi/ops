@@ -2,10 +2,15 @@
 #coding:utf-8
 import salt.client
 
-from CMDB.models import Host, HostIP
+from CMDB.models import HostIP, Host
+@HostIP
+re = Host()
+print re
+'''
 from saltjob.salt_https_api import salt_api_token
 from saltjob.salt_token_id import token_id
 from CMDB.settings import SALT_REST_URL
+
 
 
 def scanHostJob():
@@ -18,7 +23,7 @@ def scanHostJob():
                 device = Host(host_name=host,
                               kernel=result[host]["kernel"],
                               kernel_release=result[host]["kernelrelease"],
-                              virtual=result[host]["virtual"],
+                              irtual=result[host]["virtual"],
                               host=result[host]["host"],
                               osrelease=result[host]["osrelease"],
                               saltversion=result[host]["saltversion"],
@@ -32,7 +37,7 @@ def scanHostJob():
                               osarch=result[host]["osarch"],
                               cpuarch=result[host]["osarch"],
                               os=result[host]["os"],
-                              # num_cpus=int(result[host]["num_cpus"]),
+                              num_cpus=int(result[host]["num_cpus"]),
                               mem_total=int(result[host]["mem_total"]), )
                 device.save()
                 for ip in result[host]["ipv4"]:
@@ -68,3 +73,4 @@ def scanHostJob():
 
         except Exception, e:
             print e
+'''
