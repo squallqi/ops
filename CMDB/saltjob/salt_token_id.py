@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 #coding:utf-8
 from saltjob.salt_https_api import salt_api_token
-from CMDB.settings import SALT_REST_URL, SALT_USER, SALT_PASSWORD
+from ops.settings import SALT_REST_URL, SALT_USER, SALT_PASSWORD
 from django.views.decorators.csrf import csrf_exempt
 
 def token_id():

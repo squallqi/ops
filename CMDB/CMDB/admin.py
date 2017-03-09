@@ -1,16 +1,27 @@
-#!/usr/bin/env python
-#coding:utf-8
-import requests
+# -*- coding: utf-8 -*-
 from django.contrib import admin
-
+from django.db.models.aggregates import Count
 from nested_inline.admin import NestedStackedInline, NestedModelAdmin
-from CMDB.admin import *
+
 from CMDB.models import *
 from deploy_manager.models import *
-# from saltjob.salt_https_api import salt_api_token
-# from saltjob.salt_token_id import token_id
-# from saltjob.tasks import scanHostJob
-# from saltops.settings import SALT_CONN_TYPE, SALT_HTTP_URL, SALT_REST_URL
+
+
+class IPInline(admin.TabularInline):
+    model = HostIP
+    fields = ['ip']
+    verbose_name = "IP"
+    verbose_name_plural = "IP"
+    extra = 0
+
+
+class ProjectInline(admin.TabularInline):
+    model = Project.host.through
+    fields = ['project']
+    verbose_name = '业务'
+    verbose_name_plural = '业务'
+    extra = 0
+
 
 @admin.register(Host)
 class HostAdmin(admin.ModelAdmin):
@@ -18,7 +29,7 @@ class HostAdmin(admin.ModelAdmin):
                     'host', 'rack', 'saltversion', 'num_gpus', 'system_serialnumber', 'cpu_model',
                     'os', 'mem_total', 'cpuarch', 'osarch', 'create_time', 'update_time']
     search_fields = ['host']
-    #inlines = [IPInline, ProjectInline]
+    inlines = [IPInline, ProjectInline]
     # fieldsets = (
     #     ('基础信息', {
     #         'fields': ('host_name', 'kernel', 'kernel_release','virtual',
@@ -37,7 +48,6 @@ class RackInline(NestedStackedInline):
     verbose_name_plural = '机架'
     extra = 0
     fk_name = 'cabinet'
-
 
 
 @admin.register(Cabinet)
@@ -65,16 +75,16 @@ class CabinetInline(NestedStackedInline):
 
 @admin.register(IDC)
 class IDCAdmin(NestedModelAdmin):
-     list_display = ['name', 'type', 'phone',
-                     'linkman', 'address',
-                     'operator', 'concat_email', 'idc_count', 'create_time', 'update_time']
-     search_fields = ['name']
-     inlines = [CabinetInline]
+    list_display = ['name', 'type', 'phone',
+                    'linkman', 'address',
+                    'operator', 'concat_email', 'idc_count', 'create_time', 'update_time']
+    search_fields = ['name']
+    inlines = [CabinetInline]
 
-     def idc_count(self, obj):
-         return obj.cabinet_set.count()
+    def idc_count(self, obj):
+        return obj.cabinet_set.count()
 
-     idc_count.short_description = '机柜数量'
+    idc_count.short_description = '机柜数量'
 
 
 @admin.register(IDCLevel)
@@ -93,4 +103,3 @@ class ISPAdmin(admin.ModelAdmin):
 class RackAdmin(admin.ModelAdmin):
     list_display = ['cabinet', 'name', 'create_time', 'update_time']
     search_fields = ['cabinet', 'name']
-

@@ -29,12 +29,6 @@ LOGIN_REDIRECT_URL = "/"
 # Application definition
 
 INSTALLED_APPS = [
-    'CMDB',
-    'deploy_manager',
-    'saltjob',
-    'nested_inline',
-    'mptt',
-    'rest_framework',
     'suit',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -42,6 +36,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'CMDB',
+    'deploy_manager',
+    'saltjob',
+    'nested_inline',
+    'mptt',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +55,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'CMDB.urls'
+ROOT_URLCONF = 'ops.urls'
 
 SUIT_CONFIG = {
 
@@ -99,7 +99,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'CMDB.wsgi.application'
+WSGI_APPLICATION = 'ops.wsgi.application'
 
 
 # Database
@@ -163,18 +163,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
-PACKAGE_PATH = os.path.join("CMDB")
+PACKAGE_PATH = os.path.join("ops")
 
 CRONJOBS = [
     ('*/30 * * * *', 'saltjob.cron.scanHostJob')
 ]
 
-'''REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.BasicAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
-    )
-}'''
+# '''REST_FRAMEWORK = {
+#     'DEFAULT_AUTHENTICATION_CLASSES': (
+#         'rest_framework.authentication.BasicAuthentication',
+#         'rest_framework.authentication.SessionAuthentication',
+#     )
+# }'''
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
@@ -185,6 +185,6 @@ REST_FRAMEWORK = {
 
 
 
-SALT_REST_URL = 'https://192.168.11.130:8000/'
+SALT_REST_URL = 'https://10.1.10.176:8000/'
 SALT_USER = 'admin'
 SALT_PASSWORD = 'admin123'

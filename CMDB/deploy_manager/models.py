@@ -6,7 +6,7 @@ from mptt.fields import TreeForeignKey
 from mptt.models import MPTTModel
 
 from CMDB.models import Host
-from CMDB.settings import PACKAGE_PATH
+from ops.settings import PACKAGE_PATH
 
 
 class ProjectModule(MPTTModel):
