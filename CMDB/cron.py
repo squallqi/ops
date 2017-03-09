@@ -3,10 +3,7 @@
 import salt.client
 
 from CMDB.models import HostIP, Host
-@HostIP
-re = Host()
-print re
-'''
+
 from saltjob.salt_https_api import salt_api_token
 from saltjob.salt_token_id import token_id
 from CMDB.settings import SALT_REST_URL
@@ -73,4 +70,3 @@ def scanHostJob():
 
         except Exception, e:
             print e
-'''
