@@ -1,7 +1,9 @@
-#!/usr/bin/env python
 #coding:utf-8
+
+from __future__ import unicode_literals
+
 from django.db import models
-from django.utils.timezone import  now
+from django.utils.timezone import now
 from mptt.fields import TreeForeignKey
 from mptt.models import MPTTModel
 
@@ -10,6 +12,9 @@ from ops.settings import PACKAGE_PATH
 
 
 class ProjectModule(MPTTModel):
+    """
+    业务模块
+    """
     parent = TreeForeignKey('self', verbose_name='上级业务模块',
                             null=True, blank=True, related_name='children', db_index=True)
     name = models.CharField(max_length=255, blank=True, null=True, verbose_name="业务模块名称")

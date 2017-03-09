@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'nested_inline',
     'mptt',
     'rest_framework',
+    'tools_manager',
 ]
 
 MIDDLEWARE = [
@@ -66,7 +67,7 @@ SUIT_CONFIG = {
         # Rename app and set icon
         {'app': 'cmdb', 'label': u'资产管理', 'icon':'icon-lock'},
         {'app': 'deploy_manager', 'label': u'发布管理', 'icon':'icon-cog'},
-        #{'app': 'movie', 'label': u'电影', 'icon':'icon-star'},
+        {'app': 'tools_manager', 'label': u'工具管理', 'icon':'icon-star'},
 
         # Reorder app models
         {'app': 'suit', 'models': ('price',)},
