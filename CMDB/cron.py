@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 #coding:utf-8
 import salt.client
+
 import os
 os.environ.update({"DJANGO_SETTINGS_MODULE": "ops.settings"})
 import django
@@ -41,7 +42,6 @@ def scanHostJob():
                               os=result[host]["os"],
                               num_cpus=int(result[host]["num_cpus"]),
                               mem_total=int(result[host]["mem_total"]), )
-                print device
                 device.save()
                 for ip in result[host]["ipv4"]:
                     hostip = HostIP(ip=ip, host=device)

@@ -3,7 +3,6 @@
 import os
 import ConfigParser
 
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -201,7 +200,13 @@ REST_FRAMEWORK = {
 
 
 
-
+'''
 SALT_REST_URL = 'https://10.1.10.176:8000/'
 SALT_USER = 'admin'
 SALT_PASSWORD = 'admin123'
+
+'''
+
+SALT_REST_URL=cf.get('salt','salt_url')
+SALT_USER=cf.get('salt','salt_user')
+SALT_PASSWORD=cf.get('salt','salt_passwd')
