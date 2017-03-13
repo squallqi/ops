@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 #coding:utf-8
 import os
+import ConfigParser
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -111,7 +112,7 @@ WSGI_APPLICATION = 'ops.wsgi.application'
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
-}'''
+}
 
 DATABASES = {
     'default': {
@@ -121,6 +122,21 @@ DATABASES = {
     'PASSWORD': '',
     'HOST': 'localhost',
     'PORT': '3306',
+    }
+}
+'''
+
+
+cf = ConfigParser.ConfigParser()
+cf.read("ops/config.ini")
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': cf.get("db","name"),
+        'USER': cf.get("db","user"),
+        'PASSWORD':cf.get("db","pass"),
+        'HOST': cf.get("db","host"),
+        'PORT': cf.get("db","port"),
     }
 }
 
