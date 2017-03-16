@@ -30,7 +30,7 @@ def install_base():
 
 def local_apt():
 	try:
-		#os.system('cp -rf distributions /tmp/cm/conf/')
+		os.system('cp -rf distributions /tmp/cm/conf/')
 		os.system('sudo apt-get install -y reprepro')
 		os.system('cd /tmp;find /tmp/cm -name \*.deb -exec reprepro -Vb cm includedeb cloudera {} \;')
 		os.system('sudo mv /tmp/cm /var/www/html')

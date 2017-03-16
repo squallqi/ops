@@ -1,0 +1,8 @@
+Origin: Cloudera
+Label: Cloudera
+Suite: stable
+Codename: cloudera
+Version: 0.1
+Architectures: i386 amd64 source
+Components: contrib
+Description: Cloudera
