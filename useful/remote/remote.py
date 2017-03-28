@@ -24,16 +24,14 @@ if __name__=='__main__':
     for i in host.keys():
         hostname = i
         address = host[i]
-        print address
+        #print address
         client = paramiko.SSHClient()
         client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
         try:
             client.connect(address, port, username, password, look_for_keys=False)
             #paramiko.util.log_to_file("filename.log")
             stdin, stdout, stderr = client.exec_command('echo %s > /etc/hostname|hostname %s' % (hostname,hostname))
-            #stdin, stdout, stderr = client.exec_command('hostname %s' % hostname)
-
-            print stdout.read(),
+            print stdout.read()
         except Exception, e:
             print e
         client.close()
